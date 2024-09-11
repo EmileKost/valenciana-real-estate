@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { ROUTES } from "@/constants/routes";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import Link from "next/link";
+
+import { ROUTES } from "@/constants/routes";
+import { MAXIMUM_SCROLL_VALUE } from "@/constants/constants";
 
 import { Navigation } from "./Navigation";
 
@@ -16,8 +18,10 @@ export const TheHeader = ({ headerText, isDetailPage }: TheHeaderProps) => {
 	const [isScrolling, setIsScrolling] = useState<boolean>(false);
 	const { scrollY } = useScroll();
 
-	useMotionValueEvent(scrollY, "change", (latest) => {
-		latest > 30 ? setIsScrolling(true) : setIsScrolling(false);
+	useMotionValueEvent(scrollY, "change", (latest: number) => {
+		latest > MAXIMUM_SCROLL_VALUE
+			? setIsScrolling(true)
+			: setIsScrolling(false);
 	});
 
 	return (
