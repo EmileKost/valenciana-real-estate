@@ -6,7 +6,6 @@ export const HomeHero = () => {
 					<div></div>
 				</div>
 			</div>
-			I NEED TO BE REVERTED
 		</div>
 	);
 };
