@@ -9,7 +9,7 @@ type TheHeaderProps = {
 };
 
 export const TheHeader = ({ headerText, isDetailPage }: TheHeaderProps) => (
-	<header className="px-3 md:px-8 pt-10 pb-2 md:pt-20 md:pb-14 flex items-center justify-between">
+	<header className="px-3 md:px-8 pt-10 pb-2 md:pt-20 md:pb-14 flex items-center justify-between w-full fixed top-0 left-0">
 		<div>
 			<Link href={ROUTES.HOME.href}>
 				{isDetailPage ? (
