@@ -2,7 +2,7 @@ import { ROUTES } from "@/constants/routes";
 import Link from "next/link";
 
 import { NavigationLink } from "./NavigationLink";
-import { IconHamburger } from "./icons/IconHamburger";
+import { IconHamburger } from "../icons/IconHamburger";
 
 export const Navigation = () => (
 	<nav className="flex items-center gap-10">
