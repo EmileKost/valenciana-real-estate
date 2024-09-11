@@ -33,7 +33,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${montserrat.variable} ${bascimeAntique.variable} ${gotham.variable}`}>
+				className={`${montserrat.variable} ${bascimeAntique.variable} ${gotham.variable} bg-white-background`}>
 				{children}
 			</body>
 		</html>
