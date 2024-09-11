@@ -36,9 +36,9 @@ export const TheHeader = ({ headerText, isDetailPage }: TheHeaderProps) => {
 					{isDetailPage ? (
 						"Back"
 					) : (
-						<h1 className="font-text-serif text-black-primary text-xl md:text-3xl">
+						<h3 className="font-text-serif text-black-primary text-xl md:text-3xl">
 							{headerText}
-						</h1>
+						</h3>
 					)}
 				</Link>
 			</div>
