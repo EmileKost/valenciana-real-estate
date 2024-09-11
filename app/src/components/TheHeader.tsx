@@ -46,3 +46,5 @@ export const TheHeader = ({ headerText, isDetailPage }: TheHeaderProps) => {
 		</motion.header>
 	);
 };
+
+// TODO: Make hamburger menu button working (no design yet for menu so no point in making this atm)

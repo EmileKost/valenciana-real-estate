@@ -9,3 +9,5 @@ export const NavigationLink = ({ children }: NavigationLinkProps) => (
 		{children}
 	</li>
 );
+
+// TODO: Maybe make this link more global like <HoverableLink> so that we don't need to re-develop this nice hover effect every time
