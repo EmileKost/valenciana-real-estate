@@ -1,6 +1,24 @@
 import type { Metadata } from "next";
-
+import localFont from "next/font/local";
 import "./globals.css";
+
+const gotham = localFont({
+	src: "./fonts/montserrat/Montserrat-Medium.ttf",
+	variable: "--font-heading-sans",
+	weight: "500",
+});
+
+const montserrat = localFont({
+	src: "./fonts/montserrat/Montserrat-Regular.ttf",
+	variable: "--font-text-sans",
+	weight: "400",
+});
+
+const bascimeAntique = localFont({
+	src: "./fonts/bascime-antique/BacasimeAntique-Regular.ttf",
+	variable: "--font-text-serif",
+	weight: "400",
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,7 +32,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body
+				className={`${montserrat.variable} ${bascimeAntique.variable} ${gotham.variable}`}>
+				{children}
+			</body>
 		</html>
 	);
 }
