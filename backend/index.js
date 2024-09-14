@@ -27,13 +27,19 @@ app.use(express.urlencoded({ extended: true }));
 
 // Users route
 app.get("/user", async (req, res) => {
+	const userEmail = req.body.email ? req.body.email : "testuser@example.com";
+
 	const result = async () => {
 		try {
 			const db = await connectToDatabase();
 			const collection = db.collection("users");
-			const users = await collection.find().toArray();
+			const user = await collection.find({ email: userEmail }).toArray();
 
-			res.json(users);
+			if (!user) {
+				return res.send(`Could not find a user with email: ${userEmail}`);
+			}
+
+			return res.json(user);
 		} catch (err) {
 			console.log(err);
 		}
