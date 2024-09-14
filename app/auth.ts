@@ -5,7 +5,7 @@ import { z } from "zod";
 
 const getUser = async (email: string) => {
 	try {
-		// Check in MongoDB database here for user
+		// Make the connection to either NodeJS server or directly to MongoDB Database
 	} catch (err) {
 		// Err handling
 	}
