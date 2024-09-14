@@ -25,6 +25,15 @@ app.get("/property", (req, res) => {
 	res.send("Route to GET a specific property");
 });
 
+// Users route
+app.get("/user", (req, res) => {
+	res.send("list to find users");
+});
+
+app.post("/users", (req, res) => {
+	res.send("Route for creating an user");
+});
+
 // CONNECTING TO SERVER AND DATABASE
 app.listen(PORT, async () => {
 	const URI = process.env.DATABASE_URI;
