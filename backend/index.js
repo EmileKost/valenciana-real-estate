@@ -1,54 +1,79 @@
 const express = require("express");
 const fs = require("fs");
-const bodyParser = require("body-parser");
+
+const jwt = require("jsonwebtoken");
+// Own modules
+const connectToDatabase = require("./modules/db");
 
 require("dotenv").config();
 
-const { MongoClient, ServerApiVersion } = require("mongodb");
-
 const app = express();
-
 const PORT = 8000;
 
-app.use(bodyParser);
+app.use(express.json()); // Parse JSON request bodies
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/properties", (req, res) => {
-	res.send("Route to GET all properties");
-});
+const authenticateJwtToken = (req, res, next) => {
+	const token = req.header("Authorization");
+	console.log(token);
+	if (!token)
+		res.status(401).json({
+			message: "Unauthorized to perform this action, please specify a token",
+		});
 
-app.post("/properties", (req, res) => {
-	res.send("Adding a property to properties");
-});
-
-app.get("/property", (req, res) => {
-	// Req needs to be the q
-	res.send("Route to GET a specific property");
-});
-
-// CONNECTING TO SERVER AND DATABASE
-app.listen(PORT, async () => {
-	const URI = process.env.DATABASE_URI;
-	const client = new MongoClient(URI, {
-		serverApi: {
-			version: ServerApiVersion.v1,
-			strict: true,
-			deprecationErrors: true,
-		},
+	jwt.verify(token.split(" ")[1], "test", (err, user) => {
+		if (err) {
+			console.log(err);
+			return res.status(403).json({ message: "Forbidden" });
+		}
+		req.user = user;
+		next();
 	});
+};
 
-	const runDatabase = async () => {
+// app.get("/properties", (req, res) => {
+// 	res.send("Route to GET all properties");
+// });
+
+// Users route
+app.get("/user", authenticateJwtToken, async (req, res) => {
+	const userEmail = req.body.email ? req.body.email : "testuser@example.com";
+
+	const result = async () => {
 		try {
-			await client.connect();
-			await client.db("admin").command({ ping: 1 });
+			const db = await connectToDatabase();
+			const collection = db.collection("users");
+			const user = await collection.find({ email: userEmail }).toArray();
 
-			console.log(`DB connected and server listening on port ${PORT}`);
+			if (!user || user.length === 0) {
+				res.json(`There was no user found with the email: ${userEmail}`);
+			}
+
+			return res.json(user[0]);
 		} catch (err) {
 			console.log(err);
-			throw err;
-		} finally {
-			await client.close();
 		}
 	};
 
-	runDatabase();
+	result();
+});
+
+// NEXT STEPS:
+// - Make routes secure
+// - Make plan where to handle the logic
+// - Code this logic
+// - Go back to FE
+
+app.post("/users", (req, res) => {
+	res.send("Route for creating an user");
+});
+
+// CONNECTING TO SERVER AND DATABASE
+app.listen(PORT, () => {
+	const token = jwt.sign({ id: 123, email: "user@example.com" }, "test", {
+		expiresIn: "5h", // Token will expire in 1 hour
+	});
+	console.log(
+		`The server is listening at PORT:${PORT} and the token is: ${token}`
+	);
 });
