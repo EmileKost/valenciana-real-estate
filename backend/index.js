@@ -35,11 +35,11 @@ app.get("/user", async (req, res) => {
 			const collection = db.collection("users");
 			const user = await collection.find({ email: userEmail }).toArray();
 
-			if (!user) {
-				return res.send(`Could not find a user with email: ${userEmail}`);
+			if (!user || user.length === 0) {
+				res.json(`There was no user found with the email: ${userEmail}`);
 			}
 
-			return res.json(user);
+			return res.json(user[0]);
 		} catch (err) {
 			console.log(err);
 		}
