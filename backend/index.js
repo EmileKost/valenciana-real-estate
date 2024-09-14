@@ -44,7 +44,6 @@ app.listen(PORT, async () => {
 			console.log(`DB connected and server listening on port ${PORT}`);
 		} catch (err) {
 			console.log(err);
-			throw err;
 		} finally {
 			await client.close();
 		}
