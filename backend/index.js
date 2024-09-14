@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 
+const jwt = require("jsonwebtoken");
 // Own modules
 const connectToDatabase = require("./modules/db");
 
@@ -12,21 +13,30 @@ const PORT = 8000;
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true }));
 
+const authenticateJwtToken = (req, res, next) => {
+	const token = req.header("Authorization");
+	console.log(token);
+	if (!token)
+		res.status(401).json({
+			message: "Unauthorized to perform this action, please specify a token",
+		});
+
+	jwt.verify(token.split(" ")[1], "test", (err, user) => {
+		if (err) {
+			console.log(err);
+			return res.status(403).json({ message: "Forbidden" });
+		}
+		req.user = user;
+		next();
+	});
+};
+
 // app.get("/properties", (req, res) => {
 // 	res.send("Route to GET all properties");
 // });
 
-// app.post("/properties", (req, res) => {
-// 	res.send("Adding a property to properties");
-// });
-
-// app.get("/property", (req, res) => {
-// 	// Req needs to be the q
-// 	res.send("Route to GET a specific property");
-// });
-
 // Users route
-app.get("/user", async (req, res) => {
+app.get("/user", authenticateJwtToken, async (req, res) => {
 	const userEmail = req.body.email ? req.body.email : "testuser@example.com";
 
 	const result = async () => {
@@ -60,5 +70,10 @@ app.post("/users", (req, res) => {
 
 // CONNECTING TO SERVER AND DATABASE
 app.listen(PORT, () => {
-	console.log(`The server is listening at PORT:${PORT}`);
+	const token = jwt.sign({ id: 123, email: "user@example.com" }, "test", {
+		expiresIn: "5h", // Token will expire in 1 hour
+	});
+	console.log(
+		`The server is listening at PORT:${PORT} and the token is: ${token}`
+	);
 });
