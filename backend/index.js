@@ -25,6 +25,7 @@ app.get("/property", (req, res) => {
 	res.send("Route to GET a specific property");
 });
 
+// CONNECTING TO SERVER AND DATABASE
 app.listen(PORT, async () => {
 	const URI = process.env.DATABASE_URI;
 	const client = new MongoClient(URI, {
