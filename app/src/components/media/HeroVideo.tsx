@@ -16,16 +16,18 @@ export const HeroVideo = ({
 	propertySlug,
 }: HeroVideoProps) => {
 	return (
-		<div className="w-full relative h-full">
-			<div>
-				<video>
+		<Link
+			className="w-full relative h-full max-h-[600] flex items-center overflow-hidden"
+			href={"/"}>
+			<div className="w-full h-full">
+				<video className="w-full h-full object-cover">
 					<source
 						type="video/mp4"
 						src={videoUrl}
 					/>
 				</video>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
