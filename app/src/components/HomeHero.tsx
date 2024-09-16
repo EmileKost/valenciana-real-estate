@@ -12,3 +12,6 @@ export const HomeHero = () => {
 		</div>
 	);
 };
+
+// - Home Video Comp
+// - Text component
