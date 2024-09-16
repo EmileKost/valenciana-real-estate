@@ -17,7 +17,7 @@ export const HeroVideo = ({
 }: HeroVideoProps) => {
 	return (
 		<Link
-			className="w-full relative h-full max-h-[600] flex items-center overflow-hidden"
+			className="w-full relative h-full max-h-[700px] flex items-center overflow-hidden"
 			href={"/"}>
 			<div className="w-full h-full">
 				<video className="w-full h-full object-cover">
