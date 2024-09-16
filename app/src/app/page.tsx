@@ -5,7 +5,7 @@ export default function Home() {
 	return (
 		<>
 			<TheHeader headerText="VALENCIAÑA R.E" />
-			<main className="min-h-screen w-full px-2 md:px-8">
+			<main className="min-h-screen w-full">
 				<HomeHero />
 			</main>
 		</>

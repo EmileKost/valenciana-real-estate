@@ -24,6 +24,9 @@ const config: Config = {
 				},
 			},
 		},
+		zIndex: {
+			max: "9999",
+		},
 	},
 	plugins: [],
 };
