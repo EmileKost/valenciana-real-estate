@@ -11,7 +11,7 @@ type CardListingProps = {
 
 export const CardListing = ({ listing, sliderPosition }: CardListingProps) => {
 	return (
-		<div className="w-full pl-3 md:pl-8 h-screen flex flex-col md:flex-row">
+		<div className="w-full px-3 md:pl-8 h-screen flex flex-col md:flex-row items-center mt-10 md:mt-0">
 			<ListingInformation
 				title={listing.title}
 				location={listing.location}
