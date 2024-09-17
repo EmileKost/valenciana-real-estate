@@ -1,6 +1,6 @@
 import { ListingInformation } from "./ListingInformation";
 
-// import { twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
 import { ListingCard } from "@/types/listingCard";
 
@@ -11,7 +11,11 @@ type CardListingProps = {
 
 export const CardListing = ({ listing, sliderPosition }: CardListingProps) => {
 	return (
-		<div className="w-full px-3 md:pl-8 h-screen flex flex-col md:flex-row items-center mt-10 md:mt-0">
+		<div
+			className={twMerge(
+				"w-full px-3 md:pl-8 h-screen flex flex-col items-center mt-10 md:mt-0",
+				sliderPosition === "left" ? "md:flex-row-reverse" : "md:flex-row"
+			)}>
 			<ListingInformation
 				title={listing.title}
 				location={listing.location}
