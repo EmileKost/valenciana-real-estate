@@ -4,13 +4,13 @@ export const data = [
 		slug: "casa-di-aquatica",
 		description: "Short text if we ever need to use this",
 		price: 670_000,
-		primaryText:
+		textOne:
 			"Casa di Aquatica is an exquisite seaside villa located on the stunning coastline of Spain. Nestled in a tranquil setting, this luxurious property offers breathtaking views of the Mediterranean Sea, blending modern design with the beauty of its natural surroundings.",
-		secondaryText:
+		textTwo:
 			"The villa boasts spacious living areas, elegant interiors, and state-of-the-art amenities, including an infinity pool, expansive terraces, and lush gardens, perfect for relaxing and entertaining.",
 		location: {
 			streetName: "Carrer Grande",
-			streetNumber: "12",
+			streetNumber: 12,
 			addressLine2: "N.V.T", // Optional
 			postalCode: "10115",
 			city: "Moraira",
