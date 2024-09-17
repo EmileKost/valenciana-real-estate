@@ -52,4 +52,4 @@ export const CustomCursor = ({ mouseIsDown, x, y }: CustomCursorProps) => {
 	);
 };
 
-// TODO: Fix transition
+// TODO: Maybe smaller sizing
