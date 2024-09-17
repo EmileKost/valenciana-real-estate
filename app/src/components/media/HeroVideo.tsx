@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { CustomCursor } from "./CustomCursor";
 import { Tag } from "../Tag";
 
 type HeroVideoProps = {
@@ -10,7 +11,28 @@ type HeroVideoProps = {
 
 export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 	const [isFullScreen, setIsFullScreen] = useState<boolean>(false);
+	const [isHovering, setIsHovering] = useState<boolean>(false);
+	const [mousePosition, setMousePosition] = useState<{ x: number; y: number }>({
+		x: 0,
+		y: 0,
+	});
 	const refVideo = useRef(null);
+
+	const trackMousePosition = (
+		e: React.MouseEvent<HTMLDivElement, MouseEvent>
+	) => {
+		const { clientX, clientY } = e;
+
+		const boundingRect = e.currentTarget.getBoundingClientRect();
+
+		const relativeX = clientX - boundingRect.left;
+		const relativeY = clientY - boundingRect.top;
+
+		setMousePosition({
+			x: relativeX,
+			y: relativeY,
+		});
+	};
 
 	useEffect(() => {
 		if (!refVideo.current) return;
@@ -30,17 +52,22 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 
 		return () => {
 			setIsFullScreen(false);
-			if (videoElement) {
-				// videoElement.exitFullScreen();
-			}
 		};
 	}, [isFullScreen]);
 
 	return (
 		<div
 			onClick={() => setIsFullScreen(true)}
-			className="w-full relative h-[500px] flex items-center overflow-hidden cursor-pointer">
+			className="w-full relative h-[500px] flex items-center overflow-hidden cursor-pointer"
+			onMouseEnter={() => setIsHovering(true)}
+			onMouseLeave={() => setIsHovering(false)}
+			onMouseMove={(e) => trackMousePosition(e)}>
 			<div className="w-full h-full absolute top-0 left-0">
+				<CustomCursor
+					x={mousePosition.x}
+					y={mousePosition.y}
+					mouseIsDown={isHovering}
+				/>
 				<video
 					ref={refVideo}
 					className="w-full h-full object-cover"
@@ -60,12 +87,7 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 	);
 };
 
-// REQUIREMENTS
-// - Must be a link to the detail page of the property
-// - Muted Autoplay
-// - Access full control by button
-// - Loop
-
-// BACKLOg
-// - Nice custom mouse hover that informs about full screen
-// - Fix Video not in middle homeby
+// MOUSE POS
+// - Get relative mouse position
+// - ON mouseDown hover
+// - Start animating
