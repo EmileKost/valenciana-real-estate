@@ -39,7 +39,7 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 	return (
 		<div
 			onClick={() => setIsFullScreen(true)}
-			className="w-full relative h-full max-h-[700px] flex items-center overflow-hidden cursor-pointer">
+			className="w-full relative h-[500px] flex items-center overflow-hidden cursor-pointer">
 			<div className="w-full h-full absolute top-0 left-0">
 				<video
 					ref={refVideo}
@@ -53,7 +53,7 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 					/>
 				</video>
 			</div>
-			<div className="absolute bottom-3 left-3 md:bottom-8 md:left-8">
+			<div className="absolute bottom-3 left-3 md:bottom-3 md:left-8">
 				<Tag>{price}</Tag>
 			</div>
 		</div>
