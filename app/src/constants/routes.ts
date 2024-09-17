@@ -11,4 +11,8 @@ export const ROUTES = {
 		href: "/listings",
 		text: "Listings",
 	},
+	PROPERTY: {
+		href: "/property",
+		text: "Property",
+	},
 };

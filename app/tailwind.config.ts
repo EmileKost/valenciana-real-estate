@@ -22,7 +22,13 @@ const config: Config = {
 					primary: "#000000",
 					secondary: "#101010",
 				},
+				grey: {
+					primary: "#545454",
+				},
 			},
+		},
+		zIndex: {
+			max: "9999",
 		},
 	},
 	plugins: [],
