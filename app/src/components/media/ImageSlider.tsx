@@ -1,18 +1,59 @@
-import { Image } from "@/types/media";
+"use client";
+
 import { useState } from "react";
+import Image from "next/image";
+
+import { Tag } from "../Tag";
+import { DarkBlur } from "../DarkBlur";
+import { SliderIndicator } from "./SliderIndicator";
+
+import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
+
+import { Image as ImageType } from "@/types/media";
 
 type ImageSliderProps = {
-	images: Image[];
+	images: ImageType[];
+	width: number;
+	height: number;
 	price?: number;
+	className?: string;
 };
 
-export const ImageSlider = ({ images, price }: ImageSliderProps) => {
+export const ImageSlider = ({
+	images,
+	width,
+	height,
+	price,
+	className,
+}: ImageSliderProps) => {
 	const [index, setIndex] = useState<number>(0);
 
 	return (
-		<div className="w-full h-full overflow-hidden">
-			<div>
-				<div></div>
+		<div
+			className={twMerge(
+				"w-full h-full overflow-hidden flex items-center",
+				className
+			)}>
+			<div className="w-full h-[90%] relative overflow-hidden ml-0 md:ml-14">
+				<motion.div className="w-full h-full overflow-hidden">
+					<Image
+						src={"/images/image-2.png"}
+						alt="Test"
+						width={width}
+						height={height}
+						className="w-full h-full object-cover"
+					/>
+					<DarkBlur opacity={20} />
+				</motion.div>
+				{images.length > 1 && (
+					<SliderIndicator
+						setIndex={setIndex}
+						currentIndex={index}
+						images={images}
+					/>
+				)}
+				{price && <Tag className="absolute left-5 bottom-5">{price}</Tag>}
 			</div>
 		</div>
 	);
@@ -23,3 +64,5 @@ export const ImageSlider = ({ images, price }: ImageSliderProps) => {
 // - On hover <- left and right -> button to switch between images
 // - SliderIndicator that helps users navigate between images
 // - Slider is also swipeable/draggable
+
+// Make hook for price
