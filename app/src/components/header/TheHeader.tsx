@@ -30,7 +30,7 @@ export const TheHeader = ({ headerText, isDetailPage }: TheHeaderProps) => {
 				y: isScrolling ? "-100%" : "0",
 				opacity: isScrolling ? 0 : 1,
 			}}
-			className="px-3 md:px-8 py-10 md:pt-20 md:pb-14 flex items-center justify-between w-full z-max">
+			className="px-3 md:px-8 py-10 md:py-16 flex items-center justify-between w-full z-max fixed top-0 left-0">
 			<div>
 				<Link href={ROUTES.HOME.href}>
 					{isDetailPage ? (

@@ -5,7 +5,7 @@ import { CustomCursor } from "./CustomCursor";
 import { Tag } from "../Tag";
 
 type HeroVideoProps = {
-	price: string;
+	price?: string;
 	videoUrl: string;
 };
 
@@ -58,7 +58,7 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 	return (
 		<div
 			onClick={() => setIsFullScreen(true)}
-			className="w-full relative h-[500px] flex items-center overflow-hidden cursor-none"
+			className="w-full relative h-[60vh] md:h-[600px] flex items-center overflow-hidden cursor-none bg-black-secondary"
 			onMouseEnter={() => setIsHovering(true)}
 			onMouseLeave={() => setIsHovering(false)}
 			onMouseMove={(e) => trackMousePosition(e)}>
@@ -81,7 +81,7 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 				</video>
 			</div>
 			<div className="absolute bottom-3 left-3 md:bottom-3 md:left-8">
-				<Tag>{price}</Tag>
+				{price && <Tag>{price}</Tag>}
 			</div>
 		</div>
 	);

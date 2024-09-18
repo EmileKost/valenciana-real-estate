@@ -26,6 +26,9 @@ const config: Config = {
 					primary: "#545454",
 				},
 			},
+			width: {
+				third: "75%",
+			},
 		},
 		zIndex: {
 			max: "9999",
