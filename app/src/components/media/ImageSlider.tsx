@@ -87,11 +87,3 @@ export const ImageSlider = ({
 		</div>
 	);
 };
-
-// BASE REQUIREMENTS
-// - Image slider can be used in multiple instances, overview page, detail page etc..
-// - On hover <- left and right -> button to switch between images
-// - SliderIndicator that helps users navigate between images
-// - Slider is also swipeable/draggable
-
-// Make hook for price
