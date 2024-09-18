@@ -38,7 +38,7 @@ export const ImageSlider = ({
 			<div className="w-full h-full relative overflow-hidden ml-0">
 				<motion.div className="w-full h-full overflow-hidden">
 					<Image
-						src={"/images/image-2.png"}
+						src={images[index]}
 						alt="Test"
 						width={width}
 						height={height}

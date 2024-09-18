@@ -19,7 +19,11 @@ export const data = [
 			longLat: [52.45, 4],
 		},
 		media: {
-			images: ["image-path-1", "image-path-2", "image-path-3"],
+			images: [
+				"/images/image.png",
+				"/images/image-2.png",
+				"/images/image-3.png",
+			],
 			videos: ["video-path-1", "video-path-2", "video-path-3"],
 		},
 		availabe: true,
