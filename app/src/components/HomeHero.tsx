@@ -5,7 +5,7 @@ import { ButtonPrimary } from "./buttons/ButtonPrimary";
 
 export const HomeHero = () => {
 	return (
-		<div className="w-full flex flex-col items-start gap-8 md:gap-14 pb-[200px]">
+		<div className="w-full flex flex-col items-start gap-8 md:gap-14 min-h-screen">
 			<HeroVideo
 				videoUrl="/test.mp4"
 				price="$560.000"

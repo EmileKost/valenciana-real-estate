@@ -58,7 +58,7 @@ export const HeroVideo = ({ price, videoUrl }: HeroVideoProps) => {
 	return (
 		<div
 			onClick={() => setIsFullScreen(true)}
-			className="w-full relative h-[500px] flex items-center overflow-hidden cursor-none"
+			className="w-full relative h-[500px] md:h-[600px] flex items-center overflow-hidden cursor-none"
 			onMouseEnter={() => setIsHovering(true)}
 			onMouseLeave={() => setIsHovering(false)}
 			onMouseMove={(e) => trackMousePosition(e)}>

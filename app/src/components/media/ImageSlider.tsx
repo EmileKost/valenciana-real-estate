@@ -35,7 +35,7 @@ export const ImageSlider = ({
 				"w-full h-full overflow-hidden flex items-center",
 				className
 			)}>
-			<div className="w-full h-[90%] relative overflow-hidden ml-0 md:ml-14">
+			<div className="w-full h-full relative overflow-hidden ml-0">
 				<motion.div className="w-full h-full overflow-hidden">
 					<Image
 						src={"/images/image-2.png"}
