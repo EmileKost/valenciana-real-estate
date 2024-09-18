@@ -34,3 +34,8 @@ export const CardListing = ({ listing, sliderPosition }: CardListingProps) => {
 		</div>
 	);
 };
+
+// TODO:
+// - Fix card on phone
+// - Make slider draggable
+// - Hook for getting correct currency and price
