@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { ReactQueryClientProvider } from "@/components/QueryClientProvider";
+
 const gotham = localFont({
 	src: "./fonts/montserrat/Montserrat-Medium.ttf",
 	variable: "--font-heading-sans",
@@ -34,8 +36,10 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${montserrat.variable} ${bascimeAntique.variable} ${gotham.variable} bg-white-background h-[120vh]`}>
-				{children}
+				<ReactQueryClientProvider>{children}</ReactQueryClientProvider>
 			</body>
 		</html>
 	);
 }
+
+// What I don't like is that every page will be client side now... So what is the deal with that????

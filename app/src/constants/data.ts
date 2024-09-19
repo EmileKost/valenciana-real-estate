@@ -14,6 +14,7 @@ export const data = [
 			addressLine2: "N.V.T", // Optional
 			postalCode: "10115",
 			city: "Moraira",
+			closestBigCity: "Valencia",
 			province: "Valenciana",
 			country: "Spain",
 			longLat: [52.45, 4],

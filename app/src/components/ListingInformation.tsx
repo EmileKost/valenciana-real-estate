@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { IconPinpoint } from "./icons/IconPinpoint";
+import { Weather } from "./Weather";
 
 import { Location } from "@/types/listingCard";
 
@@ -46,6 +47,10 @@ export const ListingInformation = ({
 				<Link href={slug}>Open house</Link>
 				<button>Contact</button>
 			</div>
+			<Weather
+				country={location.country}
+				city={location.closestBigCity}
+			/>
 		</div>
 	);
 };
