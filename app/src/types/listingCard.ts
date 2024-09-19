@@ -23,6 +23,7 @@ export type Location = {
 	addressLine2?: string;
 	postalCode: string;
 	city: string;
+	closestBigCity: string;
 	province?: string;
 	country: string;
 	longLat: number[];
