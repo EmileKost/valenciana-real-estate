@@ -17,8 +17,6 @@ export const Weather = ({ country = "Spain", city }: WeatherProps) => {
 
 	const { data } = weather;
 
-	console.log([data]);
-
 	return (
 		<div>
 			<div>
