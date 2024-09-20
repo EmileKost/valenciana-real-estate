@@ -15,7 +15,7 @@ export const Weather = ({ country = "Spain", city }: WeatherProps) => {
 		queryFn: () => getLiveWeather(country, city),
 	});
 
-	const { data } = weather;
+	// const { data } = weather;
 
 	return (
 		<div>

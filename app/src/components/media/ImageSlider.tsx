@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { Tag } from "../Tag";
-import { DarkBlur } from "../DarkBlur";
+// import { DarkBlur } from "../DarkBlur";
 import { SliderIndicator } from "./SliderIndicator";
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -74,7 +74,7 @@ export const ImageSlider = ({
 					)}
 				</AnimatePresence>
 
-				<DarkBlur opacity={20} />
+				{/* <DarkBlur opacity={20} /> */}
 				{images.length > 1 && (
 					<SliderIndicator
 						setIndex={setIndex}
