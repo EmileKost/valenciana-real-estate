@@ -1,6 +1,8 @@
 import { HeroVideo } from "./media/HeroVideo";
 import { ButtonPrimary } from "./buttons/ButtonPrimary";
 
+import { Filter } from "./Filter";
+
 // import { data as fakeData } from "@/constants/data";
 
 export const HomeHero = () => {
@@ -17,6 +19,7 @@ export const HomeHero = () => {
 					</p>
 				</div>
 				<ButtonPrimary href="/">View listing</ButtonPrimary>
+				<Filter />
 			</div>
 		</div>
 	);
