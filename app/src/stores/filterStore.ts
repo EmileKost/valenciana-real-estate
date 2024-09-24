@@ -6,6 +6,11 @@ type UseFilterStore = {
 	location?: string[];
 	bedrooms?: number;
 	bathrooms?: number;
+	setMinPrice: (minPrice: number) => void;
+	setMaxPrice: (maxPrice: number) => void;
+	setLocation: (location: string[]) => void;
+	setBedrooms: (bedrooms: number) => void;
+	setBathrooms: (bathrooms: number) => void;
 };
 
 export const useFilterStore = create<UseFilterStore>((set) => ({
