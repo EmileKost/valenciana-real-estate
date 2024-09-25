@@ -15,12 +15,14 @@ export const Weather = ({ country = "Spain", city }: WeatherProps) => {
 		queryFn: () => getLiveWeather(country, city),
 	});
 
-	// const { data } = weather;
+	const { data } = weather;
+
+	console.log({ data });
 
 	return (
 		<div>
 			<div>
-				<div>{}</div>
+				<div>{data.name}</div>
 			</div>
 		</div>
 	);
