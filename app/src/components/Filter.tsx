@@ -1,7 +1,6 @@
 "use client";
 
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-
+import { FilterItem } from "./FilterItem";
 import { useFilterStore } from "@/stores/filterStore";
 
 // TODO: Later change with real data
@@ -13,27 +12,15 @@ export const Filter = () => {
 	return (
 		<div>
 			<div>
-				{availableLocations && availableLocations.length > 0 && (
-					<Menu>
-						<MenuButton>Location</MenuButton>
-						<MenuItems>
-							{availableLocations.map((item: any) => (
-								<MenuItem key={item}>
-									<div className="flex w-28 justify-between items-center">
-										<h4>{item}</h4>
-										<input
-											onChange={(e) => setLocation(e.target.value)}
-											type="checkbox"
-											value={item}
-											name={item}
-											id={item}
-										/>
-									</div>
-								</MenuItem>
-							))}
-						</MenuItems>
-					</Menu>
-				)}
+				{availableLocations &&
+					availableLocations.length > 0 &&
+					availableLocations.map((item: string) => (
+						<FilterItem
+							key={item}
+							item={item}
+							setState={setLocation}
+						/>
+					))}
 			</div>
 		</div>
 	);
