@@ -1,1 +1,1 @@
-export const INITIAL_ZOOM_VALUE: number = 14;
+export const INITIAL_ZOOM_VALUE: number = 10;

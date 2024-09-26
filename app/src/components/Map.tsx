@@ -29,7 +29,7 @@ export const Map = ({ lon, lat }: MapProps) => {
 			// @ts-expect-error Weird map type to fix later
 			container: refMapContainer.current,
 			center: [lon, lat],
-			zoom: 10.12,
+			zoom: zoom,
 		});
 
 		return () => {
