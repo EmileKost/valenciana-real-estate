@@ -5,5 +5,5 @@ type ListingListProps = {
 };
 
 export const ListingsList = ({ children }: ListingListProps) => (
-	<div className="w-full pl-3 md:pl-8 flex flex-col">{children}</div>
+	<div className="w-full flex flex-col gap-2 md:gap-12">{children}</div>
 );

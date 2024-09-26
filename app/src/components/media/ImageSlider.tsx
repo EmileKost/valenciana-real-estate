@@ -73,8 +73,7 @@ export const ImageSlider = ({
 							)
 					)}
 				</AnimatePresence>
-
-				<DarkBlur opacity={20} />
+				<DarkBlur />
 				{images.length > 1 && (
 					<SliderIndicator
 						setIndex={setIndex}
