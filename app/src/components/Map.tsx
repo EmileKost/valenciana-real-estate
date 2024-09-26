@@ -4,7 +4,12 @@ import { useEffect, useState, useRef, LegacyRef } from "react";
 
 import mapboxgl from "mapbox-gl";
 
-import { INITIAL_ZOOM_VALUE, ZOOM_SUM_VALUE } from "@/constants/zoomValue";
+import {
+	INITIAL_ZOOM_VALUE,
+	ZOOM_SUM_VALUE,
+	MAXIMUM_ZOOM_OUT_VALUE,
+	MAXIMUM_ZOOM_IN_VALUE,
+} from "@/constants/zoomValue";
 
 type MapProps = {
 	lon: number;
@@ -25,18 +30,17 @@ export const Map = ({ lon, lat }: MapProps) => {
 	const handleUpdateZoomValue = (operator: string) => {
 		if (!operator) return zoom;
 
-		const isMinus = operator === "plus" ? true : false;
+		const isMinus = operator === "minus";
 
 		if (isMinus) {
-			if (zoom <= 5) return zoom;
+			if (zoom <= MAXIMUM_ZOOM_OUT_VALUE) return zoom;
 
 			setZoomValue((prev) => prev - ZOOM_SUM_VALUE);
-			return zoom;
+		} else {
+			if (zoom > MAXIMUM_ZOOM_IN_VALUE) return zoom;
+
+			setZoomValue((prev) => prev + ZOOM_SUM_VALUE);
 		}
-
-		if (zoom > 16) return zoom;
-
-		setZoomValue((prev) => prev + ZOOM_SUM_VALUE);
 
 		return zoom;
 	};
@@ -73,16 +77,16 @@ export const Map = ({ lon, lat }: MapProps) => {
 				<div
 					ref={refMapContainer as LegacyRef<HTMLDivElement> | undefined}
 					className="w-full h-full relative">
-					<div className="w-fit absolute right-3 bottom-3 flex flex-col">
+					<div className="w-fit absolute left-3 bottom-3 flex flex-col">
 						<button
 							className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary"
-							onClick={() => handleUpdateZoomValue("minus")}>
+							onClick={() => handleUpdateZoomValue("plus")}>
 							+
 						</button>
 						<div className="w-10 h-[1px] bg-white-primary" />
 						<button
 							className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary"
-							onClick={() => handleUpdateZoomValue("plus")}>
+							onClick={() => handleUpdateZoomValue("minus")}>
 							-
 						</button>
 					</div>
