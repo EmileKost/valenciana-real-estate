@@ -46,7 +46,7 @@ export const Map = ({ lon, lat }: MapProps) => {
 
 			return;
 		};
-	}, [zoom, isError]);
+	}, [zoom, isError, coordinates]);
 
 	return (
 		<div className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary">
