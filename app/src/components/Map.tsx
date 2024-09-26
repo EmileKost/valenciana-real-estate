@@ -39,6 +39,7 @@ export const Map = ({ lon, lat }: MapProps) => {
 
 	return (
 		<div
+			// @ts-expect-error Map types for now are weird and need to be fixed
 			ref={refMapContainer}
 			className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary"></div>
 	);
