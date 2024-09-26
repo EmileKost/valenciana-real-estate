@@ -4,7 +4,7 @@ import { useEffect, useState, useRef, LegacyRef } from "react";
 
 import mapboxgl from "mapbox-gl";
 
-import { INITIAL_ZOOM_VALUE } from "@/constants/zoomValue";
+import { INITIAL_ZOOM_VALUE, ZOOM_SUM_VALUE } from "@/constants/zoomValue";
 
 type MapProps = {
 	lon: number;
@@ -16,11 +16,30 @@ export const Map = ({ lon, lat }: MapProps) => {
 		lon: lon,
 		lat: lat,
 	});
-	const [zoom, setZoom] = useState<number>(INITIAL_ZOOM_VALUE);
+	const [zoom, setZoomValue] = useState<number>(INITIAL_ZOOM_VALUE);
 	const [isError, setIsError] = useState<boolean>(false);
 
 	const refMap = useRef<mapboxgl.Map | null>(null);
 	const refMapContainer = useRef<string | HTMLElement>();
+
+	const handleUpdateZoomValue = (operator: string) => {
+		if (!operator) return zoom;
+
+		const isMinus = operator === "plus" ? true : false;
+
+		if (isMinus) {
+			if (zoom <= 5) return zoom;
+
+			setZoomValue((prev) => prev - ZOOM_SUM_VALUE);
+			return zoom;
+		}
+
+		if (zoom > 16) return zoom;
+
+		setZoomValue((prev) => prev + ZOOM_SUM_VALUE);
+
+		return zoom;
+	};
 
 	useEffect(() => {
 		if (!refMap) {
@@ -55,11 +74,15 @@ export const Map = ({ lon, lat }: MapProps) => {
 					ref={refMapContainer as LegacyRef<HTMLDivElement> | undefined}
 					className="w-full h-full relative">
 					<div className="w-fit absolute right-3 bottom-3 flex flex-col">
-						<button className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary">
+						<button
+							className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary"
+							onClick={() => handleUpdateZoomValue("minus")}>
 							+
 						</button>
 						<div className="w-10 h-[1px] bg-white-primary" />
-						<button className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary">
+						<button
+							className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary"
+							onClick={() => handleUpdateZoomValue("plus")}>
 							-
 						</button>
 					</div>
