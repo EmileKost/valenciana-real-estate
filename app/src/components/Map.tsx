@@ -61,6 +61,13 @@ export const Map = ({ lon, lat }: MapProps) => {
 			style: "mapbox://styles/mapbox/dark-v11",
 		});
 
+		// Determine if we really want this because it is all about the displayed location
+		refMap.current.on("move", () => {
+			if (refMap.current) {
+				const center = refMap.current.getCenter();
+			}
+		});
+
 		return () => {
 			if (refMap.current) {
 				refMap.current.remove();
