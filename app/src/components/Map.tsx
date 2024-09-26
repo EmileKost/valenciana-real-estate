@@ -103,3 +103,8 @@ export const Map = ({ lon, lat }: MapProps) => {
 		</div>
 	);
 };
+
+// TODO:
+// - Smooth transition
+// - onMove event update the location.lon and .lat
+// - Fix displaying error and follow MapBox guidelines (see logs and eventually docs)
