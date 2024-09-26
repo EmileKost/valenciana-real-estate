@@ -80,6 +80,3 @@ export const Map = ({ lon, lat }: MapProps) => {
 		</div>
 	);
 };
-
-// Components within
-// ZoomFunc
