@@ -12,6 +12,10 @@ type MapProps = {
 };
 
 export const Map = ({ lon, lat }: MapProps) => {
+	const [coordinates, setCoordinates] = useState<{ lon: number; lat: number }>({
+		lon: lon,
+		lat: lat,
+	});
 	const [zoom, setZoom] = useState<number>(INITIAL_ZOOM_VALUE);
 	const [isError, setIsError] = useState<boolean>(false);
 
@@ -28,7 +32,7 @@ export const Map = ({ lon, lat }: MapProps) => {
 		refMap.current = new mapboxgl.Map({
 			// @ts-expect-error Weird map type to fix later
 			container: refMapContainer.current,
-			center: [lon, lat],
+			center: [coordinates.lon, coordinates.lat],
 			zoom: zoom,
 		});
 
