@@ -2,6 +2,7 @@ import { TheHeader } from "@/components/header/TheHeader";
 import { HomeHero } from "@/components/HomeHero";
 import { ListingsList } from "@/components/ListingsList";
 import { CardListing } from "@/components/CardListing";
+import { Map } from "@/components/Map";
 
 import { data as fakeData } from "@/constants/data";
 
@@ -27,8 +28,16 @@ export default function Home() {
 						Come find us!
 					</h2>
 					{/* Google maps Component */}
+					{/* - Using Valencia coords for now */}
+					<Map
+						lon={39.4738}
+						lat={0.3756}
+					/>
 				</div>
 			</main>
 		</>
 	);
 }
+
+// 39.4738° N, 0.3756° W
+// Valencia / Coordinates
