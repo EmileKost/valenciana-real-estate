@@ -6,6 +6,7 @@ import { Map } from "@/components/Map";
 
 import { data as fakeData } from "@/constants/data";
 import { geojson } from "@/constants/geojson";
+import { Geojson } from "@/types/map";
 
 export default function Home() {
 	return (
@@ -39,7 +40,7 @@ export default function Home() {
 					<Map
 						lon={-0.37739}
 						lat={39.46975}
-						pinpoints={geojson}
+						geojson={geojson as Geojson}
 					/>
 				</div>
 			</main>
