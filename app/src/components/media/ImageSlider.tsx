@@ -16,7 +16,7 @@ type ImageSliderProps = {
 	images: ImageType[];
 	width: number;
 	height: number;
-	price?: number;
+	price: string | undefined;
 	className?: string;
 };
 
