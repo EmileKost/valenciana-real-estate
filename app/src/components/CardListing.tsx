@@ -1,5 +1,11 @@
+"use client";
+
+import { useCallback } from "react";
+
 import { ListingInformation } from "./ListingInformation";
 import { ImageSlider } from "./media/ImageSlider";
+
+import { useCurrencyStore } from "@/store";
 
 import { twMerge } from "tailwind-merge";
 
@@ -11,6 +17,19 @@ type CardListingProps = {
 };
 
 export const CardListing = ({ listing, sliderPosition }: CardListingProps) => {
+	const { currency } = useCurrencyStore();
+	const getFormattedPrice = useCallback((price: number, currency: string) => {
+		if (!price) return;
+
+		const formattedPrice = new Intl.NumberFormat("de-De", {
+			style: "currency",
+			currency: currency ?? "EUR",
+			maximumFractionDigits: 0,
+		}).format(price);
+
+		return formattedPrice;
+	}, []);
+
 	return (
 		<div
 			className={twMerge(
@@ -26,7 +45,7 @@ export const CardListing = ({ listing, sliderPosition }: CardListingProps) => {
 			/>
 			<ImageSlider
 				images={listing.media.images}
-				price={listing.price}
+				price={getFormattedPrice(listing.price, currency)}
 				width={809}
 				height={989}
 				className="w-full md:w-[50vw]"
