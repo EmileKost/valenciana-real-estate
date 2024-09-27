@@ -47,6 +47,3 @@ export default function Home() {
 		</>
 	);
 }
-
-// 39.4738° N, 0.3756° W
-// Valencia / Coordinates
