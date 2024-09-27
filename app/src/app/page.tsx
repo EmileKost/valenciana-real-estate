@@ -5,12 +5,13 @@ import { CardListing } from "@/components/CardListing";
 import { Map } from "@/components/Map";
 
 import { data as fakeData } from "@/constants/data";
+import { geojson } from "@/constants/geojson";
 
 export default function Home() {
 	return (
 		<>
 			<TheHeader headerText="VALENCIAÑA R.E" />
-			<main className="min-h-screen w-full flex flex-col">
+			<main className="min-h-screen w-full flex flex-col py-12">
 				<HomeHero />
 				{fakeData && fakeData.length > 0 ? (
 					<ListingsList>
@@ -35,12 +36,10 @@ export default function Home() {
 							your real estate needs!
 						</p>
 					</div>
-
-					{/* Google maps Component */}
-					{/* - Using Valencia coords for now */}
 					<Map
 						lon={-0.37739}
 						lat={39.46975}
+						pinpoints={geojson}
 					/>
 				</div>
 			</main>

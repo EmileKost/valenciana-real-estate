@@ -30,7 +30,7 @@ export const SliderIndicator = ({
 						idx === currentIndex ? "bg-white-primary" : "bg-transparent"
 					)}
 					onClick={() => setIndex(idx)}
-					key={image}></button>
+					key={idx}></button>
 			))}
 	</div>
 );

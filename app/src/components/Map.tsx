@@ -14,10 +14,11 @@ import {
 type MapProps = {
 	lon: number;
 	lat: number;
+	pinpoints: any; // Fix type later
 };
 
-export const Map = ({ lon, lat }: MapProps) => {
-	const [coordinates, setCoordinates] = useState<{ lon: number; lat: number }>({
+export const Map = ({ lon, lat, pinpoints }: MapProps) => {
+	const [coordinates] = useState<{ lon: number; lat: number }>({
 		lon: lon,
 		lat: lat,
 	});
@@ -26,6 +27,7 @@ export const Map = ({ lon, lat }: MapProps) => {
 
 	const refMap = useRef<mapboxgl.Map | null>(null);
 	const refMapContainer = useRef<string | HTMLElement>();
+	const refMarker = useRef<any>();
 
 	const handleUpdateZoomValue = (operator: string) => {
 		if (!operator) return zoom;
@@ -58,13 +60,22 @@ export const Map = ({ lon, lat }: MapProps) => {
 			container: refMapContainer.current as string | HTMLElement,
 			center: [coordinates.lon, coordinates.lat],
 			zoom: zoom,
-			style: "mapbox://styles/mapbox/dark-v11",
+			style: "mapbox://styles/mapbox/light-11",
 		});
 
-		// Determine if we really want this because it is all about the displayed location
-		refMap.current.on("move", () => {
-			if (refMap.current) {
-				const center = refMap.current.getCenter();
+		refMap.current.on("load", () => {
+			if (pinpoints) {
+				const { features } = pinpoints;
+
+				if (features) {
+					features.map((pinpoint) => {
+						console.log({ pinpoint });
+
+						new mapboxgl.Marker(refMarker.current)
+							.setLngLat([-0.37739, 39.46975])
+							.addTo(refMap.current);
+					});
+				}
 			}
 		});
 
@@ -73,49 +84,38 @@ export const Map = ({ lon, lat }: MapProps) => {
 				refMap.current.remove();
 				setIsError(false);
 			}
-
-			return;
 		};
-	}, [zoom, isError, coordinates]);
+	}, [zoom, isError, coordinates, pinpoints]);
 
 	return (
-		<div className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary">
-			{!isError ? (
-				<div
-					ref={refMapContainer as LegacyRef<HTMLDivElement> | undefined}
-					className="w-full h-full relative">
-					<div className="w-fit absolute left-3 bottom-3 flex flex-col">
-						<button
-							className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary"
-							onClick={() => handleUpdateZoomValue("plus")}>
-							+
-						</button>
-						<div className="w-10 h-[1px] bg-white-primary" />
-						<button
-							className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary"
-							onClick={() => handleUpdateZoomValue("minus")}>
-							-
-						</button>
-					</div>
+		<div className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary rounded-xl overflow-hidden">
+			<div
+				ref={refMapContainer as LegacyRef<HTMLDivElement> | undefined}
+				className="w-full h-full relative">
+				<div className="w-fit absolute left-3 bottom-3 flex flex-col">
+					<button
+						className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary"
+						onClick={() => handleUpdateZoomValue("plus")}>
+						+
+					</button>
+					<div className="w-10 h-[1px] bg-white-primary" />
+					<button
+						className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary"
+						onClick={() => handleUpdateZoomValue("minus")}>
+						-
+					</button>
 				</div>
-			) : (
-				<div className="w-full h-full flex items-center">
-					<div className="py-4 md:py-8">
-						<h3 className="font-heading text-white-primary text-xl md:text-5xl">
-							Map UnAvailable
-						</h3>
-						<p className="font-text text-white-primary text-lg md:text-xl">
-							Unfortunately the map could not be loaded, check your internet
-							connection, refresh and try again
-						</p>
-					</div>
-				</div>
-			)}
+			</div>
+			<div
+				className="w-28 h-28 bg-blue-500 rounded-full"
+				ref={refMarker}>
+				MARKER
+			</div>
 		</div>
 	);
 };
 
 // TODO:
 // - Smooth transition
-// - onMove event update the location.lon and .lat
 // - Fix displaying error and follow MapBox guidelines (see logs and eventually docs)
+// - Display pinpoint

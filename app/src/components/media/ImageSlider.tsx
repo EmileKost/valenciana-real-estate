@@ -57,7 +57,7 @@ export const ImageSlider = ({
 							idx === index && (
 								<motion.div
 									className="w-full h-full overflow-hidden"
-									key={image}
+									key={idx}
 									variants={sliderVariants}
 									initial={"initial"}
 									animate={"animate"}
