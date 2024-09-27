@@ -23,7 +23,7 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 	const [coordinates] = useState<{ lon: number; lat: number }>({
 		lon: lon,
 		lat: lat,
-	});
+	}); // Put it in a state if we want to use multiple locations or the flyTo function
 	const [zoom, setZoomValue] = useState<number>(INITIAL_ZOOM_VALUE);
 	const [isError, setIsError] = useState<boolean>(false);
 
@@ -81,6 +81,10 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 			}
 		});
 
+		refMap.current.on("zoom", () => {
+			setZoomValue(refMap.current?.getZoom() ?? INITIAL_ZOOM_VALUE);
+		});
+
 		return () => {
 			if (refMap.current) {
 				refMap.current.remove();
@@ -90,23 +94,22 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 	}, [zoom, isError, coordinates, geojson]);
 
 	return (
-		<div className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary rounded-xl overflow-hidden">
+		<div className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary rounded-xl overflow-hidden relative">
 			<div
 				ref={refMapContainer as LegacyRef<HTMLDivElement> | undefined}
-				className="w-full h-full relative">
-				<div className="w-fit absolute left-3 bottom-3 flex flex-col">
-					<button
-						className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary"
-						onClick={() => handleUpdateZoomValue("plus")}>
-						+
-					</button>
-					<div className="w-10 h-[1px] bg-white-primary" />
-					<button
-						className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary"
-						onClick={() => handleUpdateZoomValue("minus")}>
-						-
-					</button>
-				</div>
+				className="w-full h-full absolute top-0 left-0"></div>
+			<div className="w-fit absolute left-3 top-3 flex flex-col z-max">
+				<button
+					className="w-10 h-12 rounded-t-full bg-black-secondary text-white-primary"
+					onClick={() => handleUpdateZoomValue("plus")}>
+					+
+				</button>
+				<div className="w-10 h-[1px] bg-white-primary" />
+				<button
+					className="w-10 h-12 rounded-b-full bg-black-secondary text-white-primary"
+					onClick={() => handleUpdateZoomValue("minus")}>
+					-
+				</button>
 			</div>
 		</div>
 	);
