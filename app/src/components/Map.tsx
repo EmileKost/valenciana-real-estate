@@ -109,7 +109,7 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 	);
 };
 
-// TODO:
-// - Smooth transition
-// - Fix displaying error and follow MapBox guidelines (see logs and eventually docs)
-// - Display pinpoint
+// MVP is Done
+// BACKLOG
+// - Switiching between places and smoothly animating this transition.
+// - *Custom marker (need a design and plan for that)
