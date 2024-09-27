@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, LegacyRef } from "react";
+import { useEffect, useState, useRef, useCallback, LegacyRef } from "react";
 
 import mapboxgl from "mapbox-gl";
 
@@ -30,23 +30,26 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 	const refMap = useRef<mapboxgl.Map | null>(null);
 	const refMapContainer = useRef<string | HTMLElement>();
 
-	const handleUpdateZoomValue = (operator: string) => {
-		if (!operator) return zoom;
+	const handleUpdateZoomValue = useCallback(
+		(operator: string) => {
+			if (!operator) return zoom;
 
-		const isMinus = operator === "minus";
+			const isMinus = operator === "minus";
 
-		if (isMinus) {
-			if (zoom <= MAXIMUM_ZOOM_OUT_VALUE) return zoom;
+			if (isMinus) {
+				if (zoom <= MAXIMUM_ZOOM_OUT_VALUE) return zoom;
 
-			setZoomValue((prev) => prev - ZOOM_SUM_VALUE);
-		} else {
-			if (zoom > MAXIMUM_ZOOM_IN_VALUE) return zoom;
+				setZoomValue((prev) => prev - ZOOM_SUM_VALUE);
+			} else {
+				if (zoom > MAXIMUM_ZOOM_IN_VALUE) return zoom;
 
-			setZoomValue((prev) => prev + ZOOM_SUM_VALUE);
-		}
+				setZoomValue((prev) => prev + ZOOM_SUM_VALUE);
+			}
 
-		return zoom;
-	};
+			return zoom;
+		},
+		[zoom]
+	);
 
 	useEffect(() => {
 		if (!refMap) {
@@ -113,3 +116,4 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 // BACKLOG
 // - Switiching between places and smoothly animating this transition.
 // - *Custom marker (need a design and plan for that)
+// - BUG: Buttons dissapear when using styling from mapboxgl
