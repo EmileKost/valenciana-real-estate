@@ -90,6 +90,7 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 			if (refMap.current) {
 				refMap.current.remove();
 				setIsError(false);
+				setZoomValue(INITIAL_ZOOM_VALUE);
 			}
 		};
 	}, [zoom, isError, coordinates, geojson]);
