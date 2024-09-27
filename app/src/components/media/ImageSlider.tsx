@@ -57,7 +57,7 @@ export const ImageSlider = ({
 							idx === index && (
 								<motion.div
 									className="w-full h-full overflow-hidden"
-									key={image}
+									key={idx}
 									variants={sliderVariants}
 									initial={"initial"}
 									animate={"animate"}
@@ -73,8 +73,7 @@ export const ImageSlider = ({
 							)
 					)}
 				</AnimatePresence>
-
-				<DarkBlur opacity={20} />
+				<DarkBlur />
 				{images.length > 1 && (
 					<SliderIndicator
 						setIndex={setIndex}
