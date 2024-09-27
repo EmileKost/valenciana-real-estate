@@ -69,7 +69,7 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 				const { features } = geojson;
 
 				if (features) {
-					features.map((pinpoint: Pinpoint) => {
+					features.forEach((pinpoint: Pinpoint) => {
 						new mapboxgl.Marker()
 							.setLngLat(pinpoint.geometry.coordinates)
 							.addTo(refMap.current as mapboxgl.Map);
