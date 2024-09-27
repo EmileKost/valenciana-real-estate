@@ -53,7 +53,7 @@ export const Map = ({ lon, lat, pinpoints }: MapProps) => {
 			return;
 		}
 
-		if (isError) return;
+		if (isError) return; // Handle error later
 
 		mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAP_KEY as string;
 		refMap.current = new mapboxgl.Map({
