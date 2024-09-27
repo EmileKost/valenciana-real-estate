@@ -60,7 +60,7 @@ export const Map = ({ lon, lat, pinpoints }: MapProps) => {
 			container: refMapContainer.current as string | HTMLElement,
 			center: [coordinates.lon, coordinates.lat],
 			zoom: zoom,
-			style: "mapbox://styles/mapbox/light-11",
+			style: "mapbox://styles/mapbox/dark-v11",
 		});
 
 		refMap.current.on("load", () => {
