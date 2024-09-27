@@ -11,13 +11,15 @@ import {
 	MAXIMUM_ZOOM_IN_VALUE,
 } from "@/constants/zoomValue";
 
+import { Geojson, Pinpoint } from "@/types/map";
+
 type MapProps = {
 	lon: number;
 	lat: number;
-	pinpoints: any; // Fix type later
+	geojson: Geojson; // Fix type later
 };
 
-export const Map = ({ lon, lat, pinpoints }: MapProps) => {
+export const Map = ({ lon, lat, geojson }: MapProps) => {
 	const [coordinates] = useState<{ lon: number; lat: number }>({
 		lon: lon,
 		lat: lat,
@@ -27,7 +29,6 @@ export const Map = ({ lon, lat, pinpoints }: MapProps) => {
 
 	const refMap = useRef<mapboxgl.Map | null>(null);
 	const refMapContainer = useRef<string | HTMLElement>();
-	const refMarker = useRef<any>();
 
 	const handleUpdateZoomValue = (operator: string) => {
 		if (!operator) return zoom;
@@ -64,16 +65,14 @@ export const Map = ({ lon, lat, pinpoints }: MapProps) => {
 		});
 
 		refMap.current.on("load", () => {
-			if (pinpoints) {
-				const { features } = pinpoints;
+			if (geojson) {
+				const { features } = geojson;
 
 				if (features) {
-					features.map((pinpoint) => {
-						console.log({ pinpoint });
-
-						new mapboxgl.Marker(refMarker.current)
-							.setLngLat([-0.37739, 39.46975])
-							.addTo(refMap.current);
+					features.map((pinpoint: Pinpoint) => {
+						new mapboxgl.Marker()
+							.setLngLat(pinpoint.geometry.coordinates)
+							.addTo(refMap.current as mapboxgl.Map);
 					});
 				}
 			}
@@ -85,7 +84,7 @@ export const Map = ({ lon, lat, pinpoints }: MapProps) => {
 				setIsError(false);
 			}
 		};
-	}, [zoom, isError, coordinates, pinpoints]);
+	}, [zoom, isError, coordinates, geojson]);
 
 	return (
 		<div className="w-full h-[60vh] md:h-[50vh] block bg-black-secondary rounded-xl overflow-hidden">
@@ -105,11 +104,6 @@ export const Map = ({ lon, lat, pinpoints }: MapProps) => {
 						-
 					</button>
 				</div>
-			</div>
-			<div
-				className="w-28 h-28 bg-blue-500 rounded-full"
-				ref={refMarker}>
-				MARKER
 			</div>
 		</div>
 	);
