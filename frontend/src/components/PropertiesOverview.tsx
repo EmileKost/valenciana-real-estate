@@ -1,17 +1,35 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { CardGrid } from "./CardGrid";
 
 import { useGetAllProperties } from "@/hooks/useGetAllProperties";
+import { Property } from "@/types/property";
 
 export const PropertiesOverview = () => {
-	const [properties, setProperties] = useState(null);
+	const { data, isPending, isError, error } = useGetAllProperties();
 
-	const { data, isError, isPending } = useGetAllProperties();
-
-	console.log({ data });
-
-	return <div></div>;
+	return (
+		<div className="mt-36">
+			<div className="mb-4 md:mb-10">
+				<h2>All listings</h2>
+				{/* Filter here */}
+			</div>
+			<div className="w-full flex justify-center items-center">
+				{isPending && <p>Loading...</p>}
+				{isError && <p>{error.message}</p>}
+				{data && data.length > 0 && (
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full max-w-[1250px] gap-2 overflow-y-scroll max-h-[700px]">
+						{data.map((property: Property) => (
+							<CardGrid
+								property={property}
+								key={property.id}
+							/>
+						))}
+					</div>
+				)}
+			</div>
+		</div>
+	);
 };
 
 // Layout

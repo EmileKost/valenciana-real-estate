@@ -15,4 +15,8 @@ export const ROUTES = {
 		href: "/property",
 		text: "Property",
 	},
+	API: {
+		BASE: "http://localhost:4500/",
+		ALL_PROPERTIES: "properties",
+	},
 };

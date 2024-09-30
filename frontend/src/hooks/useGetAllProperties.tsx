@@ -1,21 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
+import { ROUTES } from "@/constants/routes";
 
 export const useGetAllProperties = () => {
 	const getAllProperties = async () => {
-		const response = await fetch("http://localhost:4500/properties");
-		if (!response.ok) {
-			throw new Error("Unable to fetch");
+		try {
+			const response = await axios.get(
+				`${ROUTES.API.BASE}${ROUTES.API.ALL_PROPERTIES}`
+			);
+			return response.data;
+		} catch (err) {
+			console.log(err);
+			throw err;
 		}
-
-		const result = await response.json();
-
-		return result;
 	};
 
-	const data = useQuery({
+	return useQuery({
 		queryKey: ["allProperties"],
 		queryFn: getAllProperties,
 	});
-
-	return data;
 };

@@ -1,132 +1,234 @@
 {
 	"properties": [
 		{
-			"id": 3,
-			"name": "Modern Apartment",
-			"location": "Valencia, Spain",
-			"price": 220000,
-			"type": "apartment",
-			"bedrooms": 2
-		},
-		{
 			"id": 4,
 			"name": "Luxury Penthouse",
-			"location": "Valencia, Spain",
-			"price": 600000,
+			"description": "A stunning penthouse with breathtaking views.",
+			"text": {
+				"primary": "Luxury living in the heart of the city.",
+				"secundary": "Perfect for those seeking elegance."
+			},
+			"location": {
+				"streetName": "Calle Mayor",
+				"streetNumber": 5,
+				"addressLine2": "N.V.T",
+				"postalCode": "46002",
+				"city": "Valencia",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.4699, -0.3763]
+			},
+			"price": 750000,
 			"type": "penthouse",
-			"bedrooms": 4
+			"bedrooms": 4,
+			"bathrooms": 3
 		},
 		{
 			"id": 5,
-			"name": "Beachfront Apartment",
-			"location": "Gandía, Spain",
-			"price": 320000,
-			"type": "apartment",
-			"bedrooms": 3
+			"name": "Seaside Villa",
+			"description": "A beautiful villa overlooking the Mediterranean Sea.",
+			"text": {
+				"primary": "Relax in luxury with sea views.",
+				"secundary": "Private pool and garden."
+			},
+			"location": {
+				"streetName": "Avenida del Mar",
+				"streetNumber": 20,
+				"addressLine2": "Urbanización Bahía",
+				"postalCode": "03730",
+				"city": "Jávea",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [38.789, 0.162]
+			},
+			"price": 950000,
+			"type": "villa",
+			"bedrooms": 6,
+			"bathrooms": 4
 		},
 		{
 			"id": 6,
-			"name": "City Center Flat",
-			"location": "Valencia, Spain",
-			"price": 275000,
-			"type": "apartment",
-			"bedrooms": 2
+			"name": "Cozy Townhouse",
+			"description": "A charming townhouse in a quiet neighborhood.",
+			"text": {
+				"primary": "Perfect for families looking for peace and quiet.",
+				"secundary": "Close to schools and parks."
+			},
+			"location": {
+				"streetName": "Calle San José",
+				"streetNumber": 42,
+				"addressLine2": "Barrio Antiguo",
+				"postalCode": "03002",
+				"city": "Alicante",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [38.3452, -0.4815]
+			},
+			"price": 320000,
+			"type": "townhouse",
+			"bedrooms": 3,
+			"bathrooms": 2
 		},
 		{
 			"id": 7,
-			"name": "Spacious Family Apartment",
-			"location": "Sagunto, Spain",
-			"price": 190000,
-			"type": "apartment",
-			"bedrooms": 3
+			"name": "Modern Loft",
+			"description": "A sleek and modern loft in the city center.",
+			"text": {
+				"primary": "Minimalist design with open spaces.",
+				"secundary": "Perfect for professionals."
+			},
+			"location": {
+				"streetName": "Calle Colón",
+				"streetNumber": 18,
+				"addressLine2": "Centro",
+				"postalCode": "46004",
+				"city": "Valencia",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.474, -0.379]
+			},
+			"price": 300000,
+			"type": "loft",
+			"bedrooms": 2,
+			"bathrooms": 1
 		},
 		{
 			"id": 8,
-			"name": "Cozy Loft",
-			"location": "Valencia, Spain",
-			"price": 150000,
-			"type": "loft",
-			"bedrooms": 1
+			"name": "Suburban Family Home",
+			"description": "A large family home in the suburbs.",
+			"text": {
+				"primary": "Spacious home with a large garden.",
+				"secundary": "Perfect for raising a family."
+			},
+			"location": {
+				"streetName": "Calle Nueva",
+				"streetNumber": 15,
+				"addressLine2": "Los Alamos",
+				"postalCode": "46500",
+				"city": "Sagunto",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.679, -0.278]
+			},
+			"price": 450000,
+			"type": "house",
+			"bedrooms": 5,
+			"bathrooms": 3
 		},
 		{
 			"id": 9,
-			"name": "Luxury Villa",
-			"location": "Alboraya, Spain",
-			"price": 850000,
-			"type": "villa",
-			"bedrooms": 5
+			"name": "Beachfront Apartment",
+			"description": "A modern apartment right on the beach.",
+			"text": {
+				"primary": "Wake up to the sound of the ocean.",
+				"secundary": "Perfect for beach lovers."
+			},
+			"location": {
+				"streetName": "Paseo Marítimo",
+				"streetNumber": 22,
+				"addressLine2": "Edificio Costa",
+				"postalCode": "46730",
+				"city": "Gandía",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.0003, -0.162]
+			},
+			"price": 550000,
+			"type": "apartment",
+			"bedrooms": 4,
+			"bathrooms": 2
 		},
 		{
 			"id": 10,
-			"name": "Modern City Apartment",
-			"location": "Torrent, Spain",
-			"price": 270000,
-			"type": "apartment",
-			"bedrooms": 3
+			"name": "Country Estate",
+			"description": "A beautiful estate in the countryside.",
+			"text": {
+				"primary": "Escape to the tranquility of the countryside.",
+				"secundary": "Includes a vineyard and olive grove."
+			},
+			"location": {
+				"streetName": "Camino Viejo",
+				"streetNumber": 1,
+				"addressLine2": "Finca Los Olivos",
+				"postalCode": "03780",
+				"city": "Pego",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [38.838, -0.121]
+			},
+			"price": 1200000,
+			"type": "estate",
+			"bedrooms": 7,
+			"bathrooms": 5
 		},
 		{
 			"id": 11,
-			"name": "Affordable Apartment",
-			"location": "Xàtiva, Spain",
-			"price": 120000,
-			"type": "apartment",
-			"bedrooms": 2
+			"name": "Historic Mansion",
+			"description": "A grand mansion with historical significance.",
+			"text": {
+				"primary": "Live in a piece of history.",
+				"secundary": "Restored with modern amenities."
+			},
+			"location": {
+				"streetName": "Calle Real",
+				"streetNumber": 7,
+				"addressLine2": "Casco Histórico",
+				"postalCode": "46003",
+				"city": "Valencia",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.475, -0.375]
+			},
+			"price": 950000,
+			"type": "mansion",
+			"bedrooms": 8,
+			"bathrooms": 6
 		},
 		{
 			"id": 12,
-			"name": "Valencia City Loft",
-			"location": "Valencia, Spain",
-			"price": 200000,
-			"type": "loft",
-			"bedrooms": 2
+			"name": "Penthouse with Pool",
+			"description": "A luxury penthouse with a private pool.",
+			"text": {
+				"primary": "Enjoy your own private rooftop pool.",
+				"secundary": "Stunning views of the city skyline."
+			},
+			"location": {
+				"streetName": "Avenida de las Cortes",
+				"streetNumber": 28,
+				"addressLine2": "Atico Sol",
+				"postalCode": "46005",
+				"city": "Valencia",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.46, -0.365]
+			},
+			"price": 1100000,
+			"type": "penthouse",
+			"bedrooms": 5,
+			"bathrooms": 4
 		},
 		{
 			"id": 13,
-			"name": "Seaside Apartment",
-			"location": "Cullera, Spain",
-			"price": 260000,
-			"type": "apartment",
-			"bedrooms": 2
-		},
-		{
-			"id": 14,
-			"name": "Modern Penthouse",
-			"location": "Valencia, Spain",
-			"price": 490000,
-			"type": "penthouse",
-			"bedrooms": 3
-		},
-		{
-			"id": 15,
-			"name": "Suburban Apartment",
-			"location": "Paterna, Spain",
-			"price": 180000,
-			"type": "apartment",
-			"bedrooms": 2
-		},
-		{
-			"id": 16,
-			"name": "Central Apartment",
-			"location": "Valencia, Spain",
+			"name": "Urban Apartment",
+			"description": "A cozy apartment in the heart of the city.",
+			"text": {
+				"primary": "Ideal for young professionals.",
+				"secundary": "Close to shops and nightlife."
+			},
+			"location": {
+				"streetName": "Calle de la Paz",
+				"streetNumber": 33,
+				"addressLine2": "Edificio Plaza",
+				"postalCode": "46001",
+				"city": "Valencia",
+				"province": "Valenciana",
+				"country": "Spain",
+				"longLat": [39.4695, -0.377]
+			},
 			"price": 240000,
 			"type": "apartment",
-			"bedrooms": 2
-		},
-		{
-			"id": 17,
-			"name": "Riverside Flat",
-			"location": "Manises, Spain",
-			"price": 195000,
-			"type": "apartment",
-			"bedrooms": 3
-		},
-		{
-			"id": 18,
-			"name": "Stylish Apartment",
-			"location": "Valencia, Spain",
-			"price": 280000,
-			"type": "apartment",
-			"bedrooms": 3
+			"bedrooms": 2,
+			"bathrooms": 1
 		}
 	]
 }
