@@ -8,7 +8,7 @@ import { Container } from "./containers/Container";
 
 export const HomeHero = () => {
 	return (
-		<div className="w-full pt-0 md:pt-20 flex flex-col justify-center md:items-start gap-8 md:gap-14 min-h-screen">
+		<div className="w-full pt-0 md:pt-28 flex flex-col justify-center md:items-start gap-8 md:gap-14 min-h-screen">
 			<HeroVideo videoUrl="/test_2.mp4" />
 			<Container className="flex flex-col gap-3 md:gap-4">
 				<div className="flex flex-col gap-1 md:gap-2">
