@@ -8,8 +8,4 @@ export const Container = ({
 }: {
 	children: ReactNode;
 	className?: string;
-}) => (
-	<div className={twMerge("mt-20 md:mt-36 px-3 md:px-8", className)}>
-		{children}
-	</div>
-);
+}) => <div className={twMerge("px-3 md:px-8", className)}>{children}</div>;
