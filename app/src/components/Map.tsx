@@ -4,6 +4,9 @@ import { useEffect, useState, useRef, useCallback, LegacyRef } from "react";
 
 import mapboxgl from "mapbox-gl";
 
+// Containers
+import { Container } from "./containers/Container";
+
 import {
 	INITIAL_ZOOM_VALUE,
 	ZOOM_SUM_VALUE,
@@ -117,13 +120,13 @@ export const Map = ({ lon, lat, geojson }: MapProps) => {
 					</div>
 				</>
 			) : (
-				<div className="flex flex-col gap-2 md:gap-3 text-white-primary px-3 md:px-8">
+				<Container className="flex flex-col gap-2 md:gap-3 text-white-primary">
 					<h3 className="font-heading text-xl md:text-4xl">Map unavailable</h3>
 					<p className="font-text text-sm md:text-lg">
 						Apologies, the map failed to load. Kindly refresh the page or try
 						again later.
 					</p>
-				</div>
+				</Container>
 			)}
 		</div>
 	);

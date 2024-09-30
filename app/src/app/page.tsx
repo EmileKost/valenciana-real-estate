@@ -4,6 +4,9 @@ import { ListingsList } from "@/components/ListingsList";
 import { CardListing } from "@/components/CardListing";
 import { Map } from "@/components/Map";
 
+// Containters
+import { Container } from "@/components/containers/Container";
+
 import { data as fakeData } from "@/constants/data";
 import { geojson } from "@/constants/geojson";
 import { Geojson } from "@/types/map";
@@ -12,7 +15,7 @@ export default function Home() {
 	return (
 		<>
 			<TheHeader headerText="VALENCIAÑA R.E" />
-			<main className="min-h-screen w-full flex flex-col py-12">
+			<main className="min-h-screen w-full flex flex-col">
 				<HomeHero />
 				{fakeData && fakeData.length > 0 ? (
 					<ListingsList>
@@ -25,7 +28,7 @@ export default function Home() {
 						))}
 					</ListingsList>
 				) : null}
-				<div className="px-3 md:px-8 flex flex-col gap-4 md:gap-8 mt-8 md:mt-14">
+				<Container className="flex flex-col gap-4 md:gap-8 mt-8 md:mt-14 mb-8">
 					<div>
 						<h2 className="font-heading text-2xl md:text-5xl text-black-primary font-bold">
 							Come find us!
@@ -37,12 +40,12 @@ export default function Home() {
 							your real estate needs!
 						</p>
 					</div>
-					<Map
+					{/* <Map
 						lon={-0.37739}
 						lat={39.46975}
 						geojson={geojson as Geojson}
-					/>
-				</div>
+					/> */}
+				</Container>
 			</main>
 		</>
 	);

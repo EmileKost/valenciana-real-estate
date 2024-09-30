@@ -1,3 +1,15 @@
+import { TheHeader } from "@/components/header/TheHeader";
+
+// Containers
+import { Container } from "@/components/containers/Container";
+
 export default function Page() {
-	return <div>PROPERTIES PAGE</div>;
+	return (
+		<>
+			<TheHeader headerText="Valenciaña R.E" />
+			<Container>
+				<h2>Properties</h2>
+			</Container>
+		</>
+	);
 }

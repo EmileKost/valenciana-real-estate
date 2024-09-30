@@ -1,6 +1,10 @@
 import Link from "next/link";
 
+// Icons
 import { IconPinpoint } from "./icons/IconPinpoint";
+
+// Container
+import { Container } from "./containers/Container";
 
 import { Location } from "@/types/listingCard";
 
@@ -24,7 +28,7 @@ export const ListingInformation = ({
 	const address = useGetAddressLine(location);
 
 	return (
-		<div className="flex flex-col gap-5 md:gap-10 w-full md:w-[50vw] px-3 md:px-8">
+		<Container className="flex flex-col gap-5 md:gap-10 w-full md:w-[50vw]">
 			<div className="flex flex-col gap-2 md:gap-6">
 				<h2 className="font-heading text-2xl md:text-5xl text-black-primary font-bold md:max-w-[75%]">
 					{`${title} in ${location.city}`}
@@ -46,7 +50,7 @@ export const ListingInformation = ({
 				<Link href={slug}>Open house</Link>
 				<button>Contact</button>
 			</div>
-		</div>
+		</Container>
 	);
 };
 
