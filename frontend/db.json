@@ -1,130 +1,132 @@
-[
-	{
-		"id": 3,
-		"name": "Modern Apartment",
-		"location": "Valencia, Spain",
-		"price": 220000,
-		"type": "apartment",
-		"bedrooms": 2
-	},
-	{
-		"id": 4,
-		"name": "Luxury Penthouse",
-		"location": "Valencia, Spain",
-		"price": 600000,
-		"type": "penthouse",
-		"bedrooms": 4
-	},
-	{
-		"id": 5,
-		"name": "Beachfront Apartment",
-		"location": "Gandía, Spain",
-		"price": 320000,
-		"type": "apartment",
-		"bedrooms": 3
-	},
-	{
-		"id": 6,
-		"name": "City Center Flat",
-		"location": "Valencia, Spain",
-		"price": 275000,
-		"type": "apartment",
-		"bedrooms": 2
-	},
-	{
-		"id": 7,
-		"name": "Spacious Family Apartment",
-		"location": "Sagunto, Spain",
-		"price": 190000,
-		"type": "apartment",
-		"bedrooms": 3
-	},
-	{
-		"id": 8,
-		"name": "Cozy Loft",
-		"location": "Valencia, Spain",
-		"price": 150000,
-		"type": "loft",
-		"bedrooms": 1
-	},
-	{
-		"id": 9,
-		"name": "Luxury Villa",
-		"location": "Alboraya, Spain",
-		"price": 850000,
-		"type": "villa",
-		"bedrooms": 5
-	},
-	{
-		"id": 10,
-		"name": "Modern City Apartment",
-		"location": "Torrent, Spain",
-		"price": 270000,
-		"type": "apartment",
-		"bedrooms": 3
-	},
-	{
-		"id": 11,
-		"name": "Affordable Apartment",
-		"location": "Xàtiva, Spain",
-		"price": 120000,
-		"type": "apartment",
-		"bedrooms": 2
-	},
-	{
-		"id": 12,
-		"name": "Valencia City Loft",
-		"location": "Valencia, Spain",
-		"price": 200000,
-		"type": "loft",
-		"bedrooms": 2
-	},
-	{
-		"id": 13,
-		"name": "Seaside Apartment",
-		"location": "Cullera, Spain",
-		"price": 260000,
-		"type": "apartment",
-		"bedrooms": 2
-	},
-	{
-		"id": 14,
-		"name": "Modern Penthouse",
-		"location": "Valencia, Spain",
-		"price": 490000,
-		"type": "penthouse",
-		"bedrooms": 3
-	},
-	{
-		"id": 15,
-		"name": "Suburban Apartment",
-		"location": "Paterna, Spain",
-		"price": 180000,
-		"type": "apartment",
-		"bedrooms": 2
-	},
-	{
-		"id": 16,
-		"name": "Central Apartment",
-		"location": "Valencia, Spain",
-		"price": 240000,
-		"type": "apartment",
-		"bedrooms": 2
-	},
-	{
-		"id": 17,
-		"name": "Riverside Flat",
-		"location": "Manises, Spain",
-		"price": 195000,
-		"type": "apartment",
-		"bedrooms": 3
-	},
-	{
-		"id": 18,
-		"name": "Stylish Apartment",
-		"location": "Valencia, Spain",
-		"price": 280000,
-		"type": "apartment",
-		"bedrooms": 3
-	}
-]
+{
+	"properties": [
+		{
+			"id": 3,
+			"name": "Modern Apartment",
+			"location": "Valencia, Spain",
+			"price": 220000,
+			"type": "apartment",
+			"bedrooms": 2
+		},
+		{
+			"id": 4,
+			"name": "Luxury Penthouse",
+			"location": "Valencia, Spain",
+			"price": 600000,
+			"type": "penthouse",
+			"bedrooms": 4
+		},
+		{
+			"id": 5,
+			"name": "Beachfront Apartment",
+			"location": "Gandía, Spain",
+			"price": 320000,
+			"type": "apartment",
+			"bedrooms": 3
+		},
+		{
+			"id": 6,
+			"name": "City Center Flat",
+			"location": "Valencia, Spain",
+			"price": 275000,
+			"type": "apartment",
+			"bedrooms": 2
+		},
+		{
+			"id": 7,
+			"name": "Spacious Family Apartment",
+			"location": "Sagunto, Spain",
+			"price": 190000,
+			"type": "apartment",
+			"bedrooms": 3
+		},
+		{
+			"id": 8,
+			"name": "Cozy Loft",
+			"location": "Valencia, Spain",
+			"price": 150000,
+			"type": "loft",
+			"bedrooms": 1
+		},
+		{
+			"id": 9,
+			"name": "Luxury Villa",
+			"location": "Alboraya, Spain",
+			"price": 850000,
+			"type": "villa",
+			"bedrooms": 5
+		},
+		{
+			"id": 10,
+			"name": "Modern City Apartment",
+			"location": "Torrent, Spain",
+			"price": 270000,
+			"type": "apartment",
+			"bedrooms": 3
+		},
+		{
+			"id": 11,
+			"name": "Affordable Apartment",
+			"location": "Xàtiva, Spain",
+			"price": 120000,
+			"type": "apartment",
+			"bedrooms": 2
+		},
+		{
+			"id": 12,
+			"name": "Valencia City Loft",
+			"location": "Valencia, Spain",
+			"price": 200000,
+			"type": "loft",
+			"bedrooms": 2
+		},
+		{
+			"id": 13,
+			"name": "Seaside Apartment",
+			"location": "Cullera, Spain",
+			"price": 260000,
+			"type": "apartment",
+			"bedrooms": 2
+		},
+		{
+			"id": 14,
+			"name": "Modern Penthouse",
+			"location": "Valencia, Spain",
+			"price": 490000,
+			"type": "penthouse",
+			"bedrooms": 3
+		},
+		{
+			"id": 15,
+			"name": "Suburban Apartment",
+			"location": "Paterna, Spain",
+			"price": 180000,
+			"type": "apartment",
+			"bedrooms": 2
+		},
+		{
+			"id": 16,
+			"name": "Central Apartment",
+			"location": "Valencia, Spain",
+			"price": 240000,
+			"type": "apartment",
+			"bedrooms": 2
+		},
+		{
+			"id": 17,
+			"name": "Riverside Flat",
+			"location": "Manises, Spain",
+			"price": 195000,
+			"type": "apartment",
+			"bedrooms": 3
+		},
+		{
+			"id": 18,
+			"name": "Stylish Apartment",
+			"location": "Valencia, Spain",
+			"price": 280000,
+			"type": "apartment",
+			"bedrooms": 3
+		}
+	]
+}

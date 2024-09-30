@@ -9,7 +9,7 @@ export default function Page() {
 		<>
 			<TheHeader headerText="Valenciaña R.E" />
 			<Container>
-				<h2>Properties</h2>
+				<h2>All listings</h2>
 				<PropertiesOverview />
 			</Container>
 		</>

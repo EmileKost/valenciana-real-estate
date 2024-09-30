@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 
 import { useGetAllProperties } from "@/hooks/useGetAllProperties";
@@ -6,7 +7,9 @@ import { useGetAllProperties } from "@/hooks/useGetAllProperties";
 export const PropertiesOverview = () => {
 	const [properties, setProperties] = useState(null);
 
-	const data = useGetAllProperties();
+	const { data, isError, isPending } = useGetAllProperties();
+
+	console.log({ data });
 
 	return <div></div>;
 };

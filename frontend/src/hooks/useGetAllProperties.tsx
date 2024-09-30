@@ -1,40 +1,17 @@
-import { useState, useEffect } from "react";
-
 import { useQuery } from "@tanstack/react-query";
 
-const options = {
-	method: "GET",
-	headers: {
-		"Content-Type": "application/json",
-	},
-	Authorization: {
-		"x-api-key": "fake-api-key",
-	},
-};
-
 export const useGetAllProperties = () => {
-	const [isLoading, setIsLoading] = useState<boolean>(false);
-	const [isError, setIsError] = useState<boolean>(false);
+	const getAllProperties = async () => {
+		const response = await fetch("http://localhost:4500/properties");
+		const result = await response.json();
 
-	const fetchAllProperties = async (url: string) => {
-		try {
-			const response = await fetch(url, options);
-			const result = await response.json();
-
-			console.log({ result });
-			return result;
-		} catch (err) {
-			console.log({ err });
-		}
+		return result;
 	};
 
-	// Setting up Query
 	const data = useQuery({
 		queryKey: ["allProperties"],
-		queryFn: () => fetchAllProperties,
+		queryFn: getAllProperties,
 	});
 
-	console.log({ data });
-
-	return { data, isLoading, isError };
+	return data;
 };
